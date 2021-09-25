@@ -39,7 +39,7 @@ class Bestway extends utils.Adapter {
         this.reLoginTimeout = null;
         this.refreshTokenTimeout = null;
         this.json2iob = new Json2iob(this);
-        this.deviceArray = [];
+        this.deviceDict = {};
         this.session = {};
         this.subscribeStates("*");
 
@@ -95,37 +95,56 @@ class Bestway extends utils.Adapter {
             .then(async (res) => {
                 this.log.debug(JSON.stringify(res.data));
                 for (const device of res.data.devices) {
-                    this.deviceArray.push(device.id);
-                    await this.setObjectNotExistsAsync(device.id, {
+                    this.deviceDict[device.did] = { did: device.did, product_key: device.product_key, mac: device.mac };
+                    await this.setObjectNotExistsAsync(device.did, {
                         type: "device",
                         common: {
-                            name: device.deviceAliasName,
+                            name: device.dev_alias,
                         },
                         native: {},
                     });
-                    await this.setObjectNotExistsAsync(device.id + ".remote", {
+                    await this.setObjectNotExistsAsync(device.did + ".remote", {
                         type: "channel",
                         common: {
                             name: "Remote Controls",
                         },
                         native: {},
                     });
-                    await this.setObjectNotExistsAsync(device.id + ".general", {
+                    await this.setObjectNotExistsAsync(device.did + ".general", {
                         type: "channel",
                         common: {
                             name: "General Information",
                         },
                         native: {},
                     });
-                    await this.setObjectNotExistsAsync(device.id + ".status", {
+                    await this.setObjectNotExistsAsync(device.did + ".status", {
                         type: "channel",
                         common: {
                             name: "Status of the device",
                         },
                         native: {},
                     });
-
-                    this.json2iob.parse(device.id + ".general", device);
+                    const remoteArray = [
+                        { command: "power", name: "True = Start, False = Stop" },
+                        { command: "heat_power", name: "True = Start, False = Stop" },
+                        { command: "filter_power", name: "True = Start, False = Stop" },
+                        { command: "wave_power", name: "True = Start, False = Stop" },
+                        { command: "temp_set", name: "Enter Temp", type: "number", role: "value" },
+                    ];
+                    remoteArray.forEach((remote) => {
+                        this.setObjectNotExists(device.did + ".remote." + remote.command, {
+                            type: "state",
+                            common: {
+                                name: remote.name || "",
+                                type: remote.type || "boolean",
+                                role: remote.role || "boolean",
+                                write: true,
+                                read: true,
+                            },
+                            native: {},
+                        });
+                    });
+                    this.json2iob.parse(device.did + ".general", device);
                 }
             })
             .catch((error) => {
@@ -135,10 +154,11 @@ class Bestway extends utils.Adapter {
     }
 
     async updateDevices() {
-        this.deviceArray.forEach(async (deviceId) => {
+        return;
+        Object.keys(this.deviceDict).forEach(async (device) => {
             await this.requestClient({
                 method: "get",
-                url: "https://euapi.gizwits.com/app/bindings",
+                url: "https://euapi.gizwits.com/app/datapoint?product_key=" + this.deviceDict[device].product_key,
                 headers: {
                     "Content-Type": "application/json",
                     "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
@@ -192,15 +212,32 @@ class Bestway extends utils.Adapter {
         if (state) {
             if (!state.ack) {
                 const deviceId = id.split(".")[2];
+                const command = id.split(".")[4];
+                const data = {
+                    appKey: "98754e684ec045528b073876c34c7348",
+                    data: {
+                        uid: this.session.uid,
+                        productKey: this.deviceDict[deviceId].product_key,
+                        mac: this.deviceDict[deviceId].mac,
+                        did: deviceId,
+                        command: {},
+                    },
+                    type: "appId",
+                    version: "1.0",
+                };
+                data.data.command[command] = state.val;
+                this.log.debug(JSON.stringify(data));
                 await this.requestClient({
                     method: "post",
-                    url: "https://euapi.gizwits.com/app/bindings",
+                    url: "https://euaepapp.gizwits.com/app/user/control_log",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
-                        "X-Gizwits-User-token": this.session.token,
+                        Authorization: this.session.token,
+                        Version: "1.0",
+                        Accept: "*/*",
+                        "X-Requested-With": "com.layzspa.smartHome",
                     },
-                    data: "",
+                    data: data,
                 })
                     .then((res) => {
                         this.log.debug(JSON.stringify(res.data));
