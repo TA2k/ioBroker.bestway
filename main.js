@@ -7,9 +7,8 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
-
-// Load your modules here, e.g.:
-// const fs = require("fs");
+const axios = require("axios");
+const Json2iob = require("./lib/json2iob");
 
 class Bestway extends utils.Adapter {
     /**
