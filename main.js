@@ -9,7 +9,7 @@
 const utils = require("@iobroker/adapter-core");
 const axios = require("axios");
 const Json2iob = require("./lib/json2iob");
-const descriptions = require("./descriptions");
+const descriptions = require("./lib/descriptions");
 
 class Bestway extends utils.Adapter {
     /**
