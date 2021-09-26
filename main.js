@@ -154,11 +154,10 @@ class Bestway extends utils.Adapter {
     }
 
     async updateDevices() {
-        return;
         Object.keys(this.deviceDict).forEach(async (device) => {
             await this.requestClient({
                 method: "get",
-                url: "https://euapi.gizwits.com/app/datapoint?product_key=" + this.deviceDict[device].product_key,
+                url: "https://euapi.gizwits.com/app/devdata/" + device + "/latest",
                 headers: {
                     "Content-Type": "application/json",
                     "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
@@ -167,6 +166,8 @@ class Bestway extends utils.Adapter {
             })
                 .then(async (res) => {
                     this.log.debug(JSON.stringify(res.data));
+                    res.data.attr["updated_at"] = res.data.updated_at;
+                    this.json2iob.parse(device + ".status", res.data.attr);
                 })
                 .catch((error) => {
                     if (error.response && error.response.status >= 500) {
