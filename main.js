@@ -216,28 +216,18 @@ class Bestway extends utils.Adapter {
                 const deviceId = id.split(".")[2];
                 const command = id.split(".")[4];
                 const data = {
-                    appKey: "98754e684ec045528b073876c34c7348",
-                    data: {
-                        uid: this.session.uid,
-                        productKey: this.deviceDict[deviceId].product_key,
-                        mac: this.deviceDict[deviceId].mac,
-                        did: deviceId,
-                        command: {},
-                    },
-                    type: "appId",
-                    version: "1.0",
+                    attrs: {},
                 };
-                data.data.command[command] = state.val;
+
+                data.attrs[command] = state.val;
                 this.log.debug(JSON.stringify(data));
                 await this.requestClient({
                     method: "post",
-                    url: "https://euaepapp.gizwits.com/app/user/control_log",
+                    url: "https://euapi.gizwits.com/app/control/" + deviceId,
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: this.session.token,
-                        Version: "1.0",
-                        Accept: "*/*",
-                        "X-Requested-With": "com.layzspa.smartHome",
+                        "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
+                        "X-Gizwits-User-token": this.session.token,
                     },
                     data: data,
                 })
