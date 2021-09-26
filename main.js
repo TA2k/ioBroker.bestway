@@ -9,6 +9,7 @@
 const utils = require("@iobroker/adapter-core");
 const axios = require("axios");
 const Json2iob = require("./lib/json2iob");
+const descriptions = require("./descriptions");
 
 class Bestway extends utils.Adapter {
     /**
@@ -53,7 +54,7 @@ class Bestway extends utils.Adapter {
             }, this.config.interval * 60 * 1000);
             this.refreshTokenInterval = setInterval(() => {
                 this.login();
-            }, 24 * 60 * 60 * 1000); //24hours
+            }, 7 * 24 * 60 * 60 * 1000); //7days
         }
     }
     async login() {
@@ -167,7 +168,7 @@ class Bestway extends utils.Adapter {
                 .then(async (res) => {
                     this.log.debug(JSON.stringify(res.data));
                     res.data.attr["updated_at"] = res.data.updated_at;
-                    this.json2iob.parse(device + ".status", res.data.attr);
+                    this.json2iob.parse(device + ".status", res.data.attr, { descriptions: descriptions });
                 })
                 .catch((error) => {
                     if (error.response && error.response.status >= 500) {
