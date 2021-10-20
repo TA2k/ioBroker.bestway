@@ -220,6 +220,7 @@ class Bestway extends utils.Adapter {
                 };
 
                 data.attrs[command] = state.val;
+                this.log.debug(deviceId);
                 this.log.debug(JSON.stringify(data));
                 await this.requestClient({
                     method: "post",
@@ -232,7 +233,7 @@ class Bestway extends utils.Adapter {
                     data: data,
                 })
                     .then((res) => {
-                        this.log.debug(JSON.stringify(res.data));
+                        this.log.info(JSON.stringify(res.data));
                         return res.data;
                     })
                     .catch((error) => {
@@ -244,7 +245,7 @@ class Bestway extends utils.Adapter {
                 clearTimeout(this.refreshTimeout);
                 this.refreshTimeout = setTimeout(async () => {
                     await this.updateDevices();
-                }, 10 * 1000);
+                }, 5 * 1000);
             }
         }
     }
