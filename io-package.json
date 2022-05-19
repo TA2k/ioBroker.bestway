@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "bestway",
-        "version": "0.0.1",
+        "version": "0.0.3",
         "news": {
-            "0.0.1": {
+            "0.0.3": {
+                "en": "Support for non german accounts",
+                "de": "Unterstützung für nicht deutsche Konten",
+                "ru": "Поддержка не немецких аккаунтов",
+                "pt": "Suporte para contas não alemãs",
+                "nl": "Ondersteuning voor niet-Duitse accounts",
+                "fr": "Prise en charge des comptes non allemands",
+                "it": "Supporto per account non tedeschi",
+                "es": "Soporte para cuentas no alemanas",
+                "pl": "Obsługa kont innych niż niemieckie",
+                "zh-cn": "支持非德国账户"
+            },
+            "0.0.2": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
@@ -63,6 +75,11 @@
         "connectionType": "cloud",
         "dataSource": "poll",
         "materialize": true,
+        "plugins": {
+            "sentry": {
+                "dsn": "https://77b7e8d447c84d609084a4b42c35b008@sentry.iobroker.net/154"
+            }
+        },
         "dependencies": [
             {
                 "js-controller": ">=3.0.0"
@@ -83,7 +100,8 @@
     "native": {
         "username": "",
         "password": "",
-        "interval": 10
+        "interval": 10,
+        "api": "euapi"
     },
     "objects": [],
     "instanceObjects": [

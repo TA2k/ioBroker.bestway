@@ -43,6 +43,7 @@ class Bestway extends utils.Adapter {
         this.deviceDict = {};
         this.session = {};
         this.subscribeStates("*");
+        this.api = this.config.api || "euapi";
 
         await this.login();
 
@@ -60,7 +61,7 @@ class Bestway extends utils.Adapter {
     async login() {
         await this.requestClient({
             method: "post",
-            url: "https://euapi.gizwits.com/app/login",
+            url: "https://" + this.api + ".gizwits.com/app/login",
             headers: {
                 "Content-Type": "application/json",
                 "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
@@ -86,7 +87,7 @@ class Bestway extends utils.Adapter {
     async getDeviceList() {
         await this.requestClient({
             method: "get",
-            url: "https://euapi.gizwits.com/app/bindings?show_disabled=0&limit=20&skip=0",
+            url: "https://" + this.api + ".gizwits.com/app/bindings?show_disabled=0&limit=20&skip=0",
             headers: {
                 "Content-Type": "application/json",
                 "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
@@ -158,7 +159,7 @@ class Bestway extends utils.Adapter {
         Object.keys(this.deviceDict).forEach(async (device) => {
             await this.requestClient({
                 method: "get",
-                url: "https://euapi.gizwits.com/app/devdata/" + device + "/latest",
+                url: "https://" + this.api + ".gizwits.com/app/devdata/" + device + "/latest",
                 headers: {
                     "Content-Type": "application/json",
                     "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
@@ -224,7 +225,7 @@ class Bestway extends utils.Adapter {
                 this.log.debug(JSON.stringify(data));
                 await this.requestClient({
                     method: "post",
-                    url: "https://euapi.gizwits.com/app/control/" + deviceId,
+                    url: "https://" + this.api + ".gizwits.com/app/control/" + deviceId,
                     headers: {
                         "Content-Type": "application/json",
                         "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
