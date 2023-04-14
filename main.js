@@ -156,6 +156,8 @@ class Bestway extends utils.Adapter {
           const remoteArrayv2 = [
             { command: "power", name: "True = Start, False = Stop" },
             { command: "jet", name: "Jet 1 = Start, 0 = False", type: "number", role: "value" },
+            { command: "filter", name: "Jet 1 = Start, 0 = False", type: "number", role: "value" },
+            { command: "heat", name: "Jet 1 = Start, 0 = False", type: "number", role: "value" },
             { command: "wave", name: "Wave 50/100", type: "number", role: "value" },
           ];
           remoteArrayv2.forEach((remote) => {
