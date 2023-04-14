@@ -97,7 +97,7 @@ class Bestway extends utils.Adapter {
       .then(async (res) => {
         this.log.debug(JSON.stringify(res.data));
         for (const device of res.data.devices) {
-          this.deviceDict[device.did] = { did: device.did, product_key: device.product_key, mac: device.mac, uid: device.uid };
+          this.deviceDict[device.did] = { did: device.did, product_key: device.product_key, mac: device.mac };
           await this.setObjectNotExistsAsync(device.did, {
             type: "device",
             common: {
@@ -109,6 +109,13 @@ class Bestway extends utils.Adapter {
             type: "channel",
             common: {
               name: "Remote Controls",
+            },
+            native: {},
+          });
+          await this.setObjectNotExistsAsync(device.did + ".remotev2", {
+            type: "channel",
+            common: {
+              name: "New Remote Controls",
             },
             native: {},
           });
@@ -148,10 +155,10 @@ class Bestway extends utils.Adapter {
           });
           const remoteArrayv2 = [
             { command: "power", name: "True = Start, False = Stop" },
-            { command: "jet", name: "Enter Temp", type: "number", role: "value" },
-            { command: "wave", name: "Enter Temp", type: "number", role: "value" },
+            { command: "jet", name: "Jet 1 = Start, 0 = False", type: "number", role: "value" },
+            { command: "wave", name: "Wave 50/100", type: "number", role: "value" },
           ];
-          remoteArray.forEach((remote) => {
+          remoteArrayv2.forEach((remote) => {
             this.setObjectNotExists(device.did + ".remotev2." + remote.command, {
               type: "state",
               common: {
@@ -248,8 +255,8 @@ class Bestway extends utils.Adapter {
               command: {},
               did: device.did,
               mac: device.mac,
-              productKey: device.productKey,
-              uid: device.uid,
+              productKey: device.product_key,
+              uid: "9dda2e9d9d91488f9d4afeaec5e01213",
             },
             type: "appId",
             version: "1.0",
