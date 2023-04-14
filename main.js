@@ -258,7 +258,7 @@ class Bestway extends utils.Adapter {
               did: device.did,
               mac: device.mac,
               productKey: device.product_key,
-              uid: "9dda2e9d9d91488f9d4afeaec5e01213",
+              uid: "9dda2e9d9d91488f9d4afeaec5e01212",
             },
             type: "appId",
             version: "1.0",
