@@ -158,7 +158,11 @@ class Bestway extends utils.Adapter {
             { command: "filter_power", name: "True = Start, False = Stop" },
             { command: "wave_power", name: "True = Start, False = Stop" },
             { command: "temp_set", name: "Enter Temp", type: "number", role: "value" },
-            { command: "jet", name: "0/1", type: "number", role: "value" },
+            { command: "Tset", name: "v2 Enter Temp", type: "number", role: "value" },
+            { command: "jet", name: "v2 1 = Start, 0 = Stop", type: "number", role: "value" },
+            { command: "filter", name: "v2 1 = Start, 0 = Stop", type: "number", role: "value" },
+            { command: "wave", name: "v2 0, 50, 100", type: "number", role: "value" },
+            { command: "heat", name: "v2 1 = Start, 0 = Stop", type: "number", role: "value" },
           ];
           remoteArray.forEach((remote) => {
             this.setObjectNotExists(device.did + ".remote." + remote.command, {
@@ -173,26 +177,7 @@ class Bestway extends utils.Adapter {
               native: {},
             });
           });
-          const remoteArrayv2 = [
-            { command: "power", name: "True = Start, False = Stop" },
-            { command: "jet", name: "Jet 1 = Start, 0 = False", type: "number", role: "value" },
-            { command: "filter", name: "Jet 1 = Start, 0 = False", type: "number", role: "value" },
-            { command: "heat", name: "Jet 1 = Start, 0 = False", type: "number", role: "value" },
-            { command: "wave", name: "Wave 50/100", type: "number", role: "value" },
-          ];
-          remoteArrayv2.forEach((remote) => {
-            this.setObjectNotExists(device.did + ".remotev2." + remote.command, {
-              type: "state",
-              common: {
-                name: remote.name || "",
-                type: remote.type || "boolean",
-                role: remote.role || "boolean",
-                write: true,
-                read: true,
-              },
-              native: {},
-            });
-          });
+
           this.json2iob.parse(device.did + ".general", device);
         }
       })
