@@ -1,130 +1,124 @@
 {
-    "common": {
-        "name": "bestway",
-        "version": "0.0.3",
-        "news": {
-            "0.0.3": {
-                "en": "Support for non german accounts",
-                "de": "Unterstützung für nicht deutsche Konten",
-                "ru": "Поддержка не немецких аккаунтов",
-                "pt": "Suporte para contas não alemãs",
-                "nl": "Ondersteuning voor niet-Duitse accounts",
-                "fr": "Prise en charge des comptes non allemands",
-                "it": "Supporto per account non tedeschi",
-                "es": "Soporte para cuentas no alemanas",
-                "pl": "Obsługa kont innych niż niemieckie",
-                "zh-cn": "支持非德国账户"
-            },
-            "0.0.2": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
-            }
-        },
-        "title": "Bestway Smart Hub",
-        "titleLang": {
-            "en": "Bestway Smart Hub",
-            "de": "Bestway Smart Hub",
-            "ru": "Bestway Smart Hub",
-            "pt": "Bestway Smart Hub",
-            "nl": "Bestway Smart Hub",
-            "fr": "Centre intelligent Bestway",
-            "it": "Bestway Smart Hub",
-            "es": "Bestway Smart Hub",
-            "pl": "Bestway Smart Hub",
-            "zh-cn": "百威智能枢纽"
-        },
-        "desc": {
-            "en": "Adapter for Bestway Smart Hub",
-            "de": "Adapter für Bestway Smart Hub",
-            "ru": "Адаптер для Bestway Smart Hub",
-            "pt": "Adaptador para Bestway Smart Hub",
-            "nl": "Adapter voor Bestway Smart Hub",
-            "fr": "Adaptateur pour Bestway Smart Hub",
-            "it": "Adattatore per Bestway Smart Hub",
-            "es": "Adaptador para Bestway Smart Hub",
-            "pl": "Adapter do Bestway Smart Hub",
-            "zh-cn": "Bestway Smart Hub 适配器"
-        },
-        "authors": [
-            "TA2k <tombox2020@gmail.com>"
-        ],
-        "keywords": [
-            "bestway",
-            "smart hub",
-            "Lay-Z-Spa"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "bestway.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/TA2k/ioBroker.bestway/master/admin/bestway.png",
-        "readme": "https://github.com/TA2k/ioBroker.bestway/blob/master/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "household",
-        "compact": true,
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "materialize": true,
-        "plugins": {
-            "sentry": {
-                "dsn": "https://77b7e8d447c84d609084a4b42c35b008@sentry.iobroker.net/154"
-            }
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=3.0.0"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=4.0.9"
-            }
-        ]
+  "common": {
+    "name": "bestway",
+    "version": "0.0.4",
+    "news": {
+      "0.0.4": {
+        "en": "Support for v2 pump version",
+        "de": "Unterstützung für v2 Pumpenversion"
+      },
+      "0.0.3": {
+        "en": "Support for non german accounts",
+        "de": "Unterstützung für nicht deutsche Konten",
+        "ru": "Поддержка не немецких аккаунтов",
+        "pt": "Suporte para contas não alemãs",
+        "nl": "Ondersteuning voor niet-Duitse accounts",
+        "fr": "Prise en charge des comptes non allemands",
+        "it": "Supporto per account non tedeschi",
+        "es": "Soporte para cuentas no alemanas",
+        "pl": "Obsługa kont innych niż niemieckie",
+        "zh-cn": "支持非德国账户"
+      },
+      "0.0.2": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版"
+      }
     },
-    "encryptedNative": [
-        "password"
-    ],
-    "protectedNative": [
-        "password"
-    ],
-    "native": {
-        "username": "",
-        "password": "",
-        "interval": 10,
-        "api": "euapi"
+    "title": "Bestway Smart Hub",
+    "titleLang": {
+      "en": "Bestway Smart Hub",
+      "de": "Bestway Smart Hub",
+      "ru": "Bestway Smart Hub",
+      "pt": "Bestway Smart Hub",
+      "nl": "Bestway Smart Hub",
+      "fr": "Centre intelligent Bestway",
+      "it": "Bestway Smart Hub",
+      "es": "Bestway Smart Hub",
+      "pl": "Bestway Smart Hub",
+      "zh-cn": "百威智能枢纽"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "Adapter for Bestway Smart Hub",
+      "de": "Adapter für Bestway Smart Hub",
+      "ru": "Адаптер для Bestway Smart Hub",
+      "pt": "Adaptador para Bestway Smart Hub",
+      "nl": "Adapter voor Bestway Smart Hub",
+      "fr": "Adaptateur pour Bestway Smart Hub",
+      "it": "Adattatore per Bestway Smart Hub",
+      "es": "Adaptador para Bestway Smart Hub",
+      "pl": "Adapter do Bestway Smart Hub",
+      "zh-cn": "Bestway Smart Hub 适配器"
+    },
+    "authors": ["TA2k <tombox2020@gmail.com>"],
+    "keywords": ["bestway", "smart hub", "Lay-Z-Spa"],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "bestway.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/TA2k/ioBroker.bestway/master/admin/bestway.png",
+    "readme": "https://github.com/TA2k/ioBroker.bestway/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "household",
+    "compact": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "materialize": true,
+    "plugins": {
+      "sentry": {
+        "dsn": "https://77b7e8d447c84d609084a4b42c35b008@sentry.iobroker.net/154"
+      }
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=3.0.0"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=4.0.9"
+      }
     ]
+  },
+  "encryptedNative": ["password"],
+  "protectedNative": ["password"],
+  "native": {
+    "username": "",
+    "password": "",
+    "interval": 10,
+    "api": "euapi"
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }
