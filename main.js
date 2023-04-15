@@ -83,6 +83,25 @@ class Bestway extends utils.Adapter {
           this.log.error(JSON.stringify(error.response.data));
         }
       });
+    await this.requestClient({
+      method: "get",
+      url: "https://" + this.api + ".gizwits.com/app/users",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Gizwits-Application-Id": "98754e684ec045528b073876c34c7348",
+        "X-Gizwits-User-token": this.session.token,
+      },
+    })
+      .then(async (res) => {
+        this.uid = res.data.uid;
+        this.log.debug(JSON.stringify(res.data));
+      })
+      .catch((error) => {
+        this.log.error(error);
+        if (error.response) {
+          this.log.error(JSON.stringify(error.response.data));
+        }
+      });
   }
   async getDeviceList() {
     await this.requestClient({
@@ -139,6 +158,7 @@ class Bestway extends utils.Adapter {
             { command: "filter_power", name: "True = Start, False = Stop" },
             { command: "wave_power", name: "True = Start, False = Stop" },
             { command: "temp_set", name: "Enter Temp", type: "number", role: "value" },
+            { command: "jet", name: "0/1", type: "number", role: "value" },
           ];
           remoteArray.forEach((remote) => {
             this.setObjectNotExists(device.did + ".remote." + remote.command, {
@@ -258,7 +278,7 @@ class Bestway extends utils.Adapter {
               did: device.did,
               mac: device.mac,
               productKey: device.product_key,
-              uid: "9dda2e9d9d91488f9d4afeaec5e01212",
+              uid: this.uid,
             },
             type: "appId",
             version: "1.0",
@@ -270,10 +290,17 @@ class Bestway extends utils.Adapter {
             method: "post",
             url: "https://euaepapp.gizwits.com/app/user/control_log",
             headers: {
-              "Content-Type": "application/json",
+              Accept: "*/*",
+              Version: "1.0",
               Authorization: this.session.token,
+              "Accept-Language": "de-de",
+              "Content-Type": "application/json",
+              Origin: "http://localhost:9909",
+              "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
+              Connection: "keep-alive",
+              Referer: "http://localhost:9909/",
             },
-            data: data,
+            data: JSON.stringify(data),
           })
             .then((res) => {
               this.log.info(JSON.stringify(res.data));
