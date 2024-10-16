@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "bestway",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "news": {
-      "0.0.4": {
+      "0.0.5": {
         "en": "Support for v2 pump version",
         "de": "Unterstützung für v2 Pumpenversion"
       },
@@ -18,18 +18,6 @@
         "es": "Soporte para cuentas no alemanas",
         "pl": "Obsługa kont innych niż niemieckie",
         "zh-cn": "支持非德国账户"
-      },
-      "0.0.2": {
-        "en": "initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "Начальная версия",
-        "pt": "lançamento inicial",
-        "nl": "Eerste uitgave",
-        "fr": "Première version",
-        "it": "Versione iniziale",
-        "es": "Versión inicial",
-        "pl": "Pierwsze wydanie",
-        "zh-cn": "首次出版"
       }
     },
     "title": "Bestway Smart Hub",
