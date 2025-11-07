@@ -55,6 +55,7 @@
     "extIcon": "https://raw.githubusercontent.com/TA2k/ioBroker.bestway/master/admin/bestway.png",
     "readme": "https://github.com/TA2k/ioBroker.bestway/blob/master/README.md",
     "loglevel": "info",
+    "tier": 2,
     "mode": "daemon",
     "type": "household",
     "compact": true,
