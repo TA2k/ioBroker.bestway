@@ -45,8 +45,14 @@
       "pl": "Adapter do Bestway Smart Hub",
       "zh-cn": "Bestway Smart Hub 适配器"
     },
-    "authors": ["TA2k <tombox2020@gmail.com>"],
-    "keywords": ["bestway", "smart hub", "Lay-Z-Spa"],
+    "authors": [
+      "TA2k <tombox2020@gmail.com>"
+    ],
+    "keywords": [
+      "bestway",
+      "smart hub",
+      "Lay-Z-Spa"
+    ],
     "license": "MIT",
     "platform": "Javascript/Node.js",
     "main": "main.js",
@@ -60,7 +66,6 @@
     "compact": true,
     "connectionType": "cloud",
     "dataSource": "poll",
-    "materialize": true,
     "plugins": {
       "sentry": {
         "dsn": "https://77b7e8d447c84d609084a4b42c35b008@sentry.iobroker.net/154"
@@ -68,17 +73,24 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=3.0.0"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [
       {
         "admin": ">=4.0.9"
       }
-    ]
+    ],
+    "adminUI": {
+      "config": "materialize"
+    }
   },
-  "encryptedNative": ["password"],
-  "protectedNative": ["password"],
+  "encryptedNative": [
+    "password"
+  ],
+  "protectedNative": [
+    "password"
+  ],
   "native": {
     "username": "",
     "password": "",

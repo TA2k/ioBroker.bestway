@@ -30,6 +30,10 @@ https://forum.iobroker.net/topic/48023/test-adapter-bestway-v0-0-x
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.0.5
 
 Support for v2 pump version
