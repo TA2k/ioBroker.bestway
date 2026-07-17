@@ -1,0 +1,49 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "username": {
+      "type": "text",
+      "label": "App Email",
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
+    },
+    "password": {
+      "type": "password",
+      "label": "App Password",
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
+    },
+    "interval": {
+      "type": "number",
+      "label": "Update interval (in minutes)",
+      "min": 0.5,
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 4,
+      "lg": 3,
+      "xl": 3
+    },
+    "api": {
+      "type": "select",
+      "label": "Country",
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 4,
+      "lg": 3,
+      "xl": 3,
+      "options": [
+        { "label": "Germany", "value": "euapi" },
+        { "label": "Not Germany", "value": "usapi" }
+      ]
+    }
+  }
+}

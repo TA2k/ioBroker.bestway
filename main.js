@@ -233,7 +233,7 @@ class Bestway extends utils.Adapter {
       clearInterval(this.updateInterval);
       clearInterval(this.refreshTokenInterval);
       callback();
-    } catch (e) {
+    } catch {
       callback();
     }
   }

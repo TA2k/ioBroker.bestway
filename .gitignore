@@ -10,7 +10,10 @@ nbproject
 # npm package files
 iobroker.*.tgz
 
+.commitinfo
+
 Thumbs.db
+.DS_Store
 
 # i18n intermediate files
 admin/i18n/flat.txt
