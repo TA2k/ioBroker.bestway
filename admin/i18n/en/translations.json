@@ -26,5 +26,6 @@
     "QR code (iOS + Android)": "QR code (iOS + Android)",
     "Android ID (Android only)": "Android ID (Android only)",
     "Android ID": "Android ID",
-    "Android users only: the 16-character ID shown in the Bestway Connect app under profile / account. This directly reuses your existing account and its paired devices, no QR code needed.": "Android users only: the 16-character ID shown in the Bestway Connect app under profile / account. This directly reuses your existing account and its paired devices, no QR code needed."
+    "Android users only: the 16-character ID shown in the Bestway Connect app under profile / account. This directly reuses your existing account and its paired devices, no QR code needed.": "Android users only: the 16-character ID shown in the Bestway Connect app under profile / account. This directly reuses your existing account and its paired devices, no QR code needed.",
+    "e.g. 903eaa3ed6dce6a5": "e.g. 903eaa3ed6dce6a5"
 }

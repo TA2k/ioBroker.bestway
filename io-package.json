@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "bestway",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "news": {
+      "0.0.6": {
+        "en": "Support for Bestway Connect / Smart Spa (V2, AWS IoT backend) with QR code or Android ID pairing and realtime WebSocket updates",
+        "de": "Unterstützung für Bestway Connect / Smart Spa (V2, AWS-IoT-Backend) mit QR-Code- oder Android-ID-Kopplung und Echtzeit-WebSocket-Updates",
+        "ru": "Поддержка Bestway Connect / Smart Spa (V2, бэкенд AWS IoT) с привязкой по QR-коду или Android ID и обновлениями через WebSocket в реальном времени",
+        "pt": "Suporte para Bestway Connect / Smart Spa (V2, backend AWS IoT) com emparelhamento por código QR ou Android ID e atualizações WebSocket em tempo real",
+        "nl": "Ondersteuning voor Bestway Connect / Smart Spa (V2, AWS IoT-backend) met koppeling via QR-code of Android ID en realtime WebSocket-updates",
+        "fr": "Prise en charge de Bestway Connect / Smart Spa (V2, backend AWS IoT) avec appairage par code QR ou Android ID et mises à jour WebSocket en temps réel",
+        "it": "Supporto per Bestway Connect / Smart Spa (V2, backend AWS IoT) con abbinamento tramite codice QR o Android ID e aggiornamenti WebSocket in tempo reale",
+        "es": "Compatibilidad con Bestway Connect / Smart Spa (V2, backend AWS IoT) con emparejamiento por código QR o Android ID y actualizaciones WebSocket en tiempo real",
+        "pl": "Obsługa Bestway Connect / Smart Spa (V2, backend AWS IoT) z parowaniem przez kod QR lub Android ID oraz aktualizacjami WebSocket w czasie rzeczywistym",
+        "uk": "Підтримка Bestway Connect / Smart Spa (V2, бекенд AWS IoT) зі зв'язуванням через QR-код або Android ID та оновленнями WebSocket у реальному часі",
+        "zh-cn": "支持 Bestway Connect / Smart Spa（V2，AWS IoT 后端），可通过二维码或 Android ID 配对，并提供实时 WebSocket 更新"
+      },
       "0.0.5": {
         "en": "Support for v2 pump version",
         "de": "Unterstützung für v2 Pumpenversion",
@@ -31,33 +44,33 @@
       }
     },
     "titleLang": {
-      "en": "Bestway Smart Hub",
-      "de": "Bestway Smart Hub",
-      "ru": "Bestway Smart Hub",
-      "pt": "Bestway Smart Hub",
-      "nl": "Bestway Smart Hub",
-      "fr": "Centre intelligent Bestway",
-      "it": "Bestway Smart Hub",
-      "es": "Bestway Smart Hub",
-      "pl": "Bestway Smart Hub",
-      "zh-cn": "百威智能枢纽",
-      "uk": "Bestway Smart Hub"
+      "en": "Bestway Smart Hub & Connect",
+      "de": "Bestway Smart Hub & Connect",
+      "ru": "Bestway Smart Hub & Connect",
+      "pt": "Bestway Smart Hub & Connect",
+      "nl": "Bestway Smart Hub & Connect",
+      "fr": "Bestway Smart Hub & Connect",
+      "it": "Bestway Smart Hub & Connect",
+      "es": "Bestway Smart Hub & Connect",
+      "pl": "Bestway Smart Hub & Connect",
+      "zh-cn": "Bestway Smart Hub & Connect",
+      "uk": "Bestway Smart Hub & Connect"
     },
     "desc": {
-      "en": "Adapter for Bestway Smart Hub",
-      "de": "Adapter für Bestway Smart Hub",
-      "ru": "Адаптер для Bestway Smart Hub",
-      "pt": "Adaptador para Bestway Smart Hub",
-      "nl": "Adapter voor Bestway Smart Hub",
-      "fr": "Adaptateur pour Bestway Smart Hub",
-      "it": "Adattatore per Bestway Smart Hub",
-      "es": "Adaptador para Bestway Smart Hub",
-      "pl": "Adapter do Bestway Smart Hub",
-      "zh-cn": "Bestway Smart Hub 适配器",
-      "uk": "Адаптер для Bestway Smart Hub"
+      "en": "Adapter for Bestway Smart Hub (V1) and Bestway Connect / Smart Spa (V2)",
+      "de": "Adapter für Bestway Smart Hub (V1) und Bestway Connect / Smart Spa (V2)",
+      "ru": "Адаптер для Bestway Smart Hub (V1) и Bestway Connect / Smart Spa (V2)",
+      "pt": "Adaptador para Bestway Smart Hub (V1) e Bestway Connect / Smart Spa (V2)",
+      "nl": "Adapter voor Bestway Smart Hub (V1) en Bestway Connect / Smart Spa (V2)",
+      "fr": "Adaptateur pour Bestway Smart Hub (V1) et Bestway Connect / Smart Spa (V2)",
+      "it": "Adattatore per Bestway Smart Hub (V1) e Bestway Connect / Smart Spa (V2)",
+      "es": "Adaptador para Bestway Smart Hub (V1) y Bestway Connect / Smart Spa (V2)",
+      "pl": "Adapter do Bestway Smart Hub (V1) i Bestway Connect / Smart Spa (V2)",
+      "zh-cn": "适用于 Bestway Smart Hub (V1) 和 Bestway Connect / Smart Spa (V2) 的适配器",
+      "uk": "Адаптер для Bestway Smart Hub (V1) та Bestway Connect / Smart Spa (V2)"
     },
     "authors": ["TA2k <tombox2020@gmail.com>"],
-    "keywords": ["bestway", "smart hub", "Lay-Z-Spa"],
+    "keywords": ["bestway", "smart hub", "bestway connect", "smart spa", "Lay-Z-Spa"],
     "licenseInformation": {
       "type": "free",
       "license": "MIT"

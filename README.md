@@ -14,7 +14,12 @@
 
 ## bestway adapter for ioBroker
 
-Adapter for Bestway Smart Hub
+Adapter for Bestway Smart Hub (V1) and Bestway Connect / Smart Spa (V2).
+
+Two device generations are supported, selected in the adapter settings:
+
+- **V1 – Bestway Smart Hub** (older models, Gizwits backend): log in with the app email and password and select the country.
+- **V2 – Bestway Connect / Smart Spa** (UltraFit models from 2025, AWS IoT backend): pair via QR code or Android ID and select the region.
 
 ## Sentry
 
@@ -22,17 +27,31 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Loginablauf:
 
-Die Bestway Smart Hub App Mail und Passwort eingeben.
+### V1 (Bestway Smart Hub)
+
+Die Bestway Smart Hub App Mail und Passwort eingeben und das Land auswählen.
+
+### V2 (Bestway Connect / Smart Spa)
+
+Generation "V2" auswählen und die Region wählen. Dann eine der beiden Kopplungsmethoden nutzen:
+
+- **QR-Code** (iOS und Android): In der Bestway Connect App unter Geräteeinstellungen > Gerätefreigabe den QR-Code anzeigen, ihn dekodieren (z.B. über https://scanqr.org/) und den Text (beginnt mit `RW_Share_`) im Adapter eintragen. Der Code ist nur wenige Minuten gültig und wird einmalig zur Kopplung verwendet.
+- **Android-ID** (nur Android): Die in der Bestway Connect App unter Profil angezeigte ID eintragen. Damit wird das bestehende Konto samt gekoppelter Geräte direkt verwendet, ohne QR-Code.
 
 ## Steuern
 
-bestway.0.id.remote auf true setzen steuert den jeweiligen Befehl
+- V1: `bestway.0.<id>.remote.*` bzw. `remotev2.*` setzen steuert den jeweiligen Befehl.
+- V2: `bestway.0.<id>.remotev3.*` setzen steuert den jeweiligen Befehl (power, heat, filter, jet, wave, temp_set, locked).
 
 ## Diskussion und Fragen:
 
 https://forum.iobroker.net/topic/48023/test-adapter-bestway-v0-0-x
 
 ## Changelog
+
+### 0.0.6
+
+Support for Bestway Connect / Smart Spa (V2, AWS IoT backend) with QR code or Android ID pairing and realtime WebSocket updates.
 
 ### 0.0.5
 

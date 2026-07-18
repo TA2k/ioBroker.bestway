@@ -1,7 +1,7 @@
 {
   "name": "iobroker.bestway",
-  "version": "0.0.5",
-  "description": "Adapter for Bestway Smart Hub",
+  "version": "0.0.6",
+  "description": "Adapter for Bestway Smart Hub and Bestway Connect (Smart Spa)",
   "author": {
     "name": "TA2k",
     "email": "tombox2020@gmail.com"
@@ -11,6 +11,8 @@
   "keywords": [
     "bestway",
     "smart hub",
+    "bestway connect",
+    "smart spa",
     "Lay-Z-Spa",
     "ioBroker"
   ],

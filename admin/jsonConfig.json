@@ -20,6 +20,7 @@
       "type": "number",
       "label": "Update interval (in minutes)",
       "min": 0.5,
+      "newLine": true,
       "xs": 12,
       "sm": 12,
       "md": 6,
@@ -119,6 +120,7 @@
     "qrCode": {
       "type": "text",
       "label": "Share QR code",
+      "placeholder": "RW_Share_...",
       "help": "Open the Bestway Connect app: device settings > Device Sharing, show the QR code, decode it (e.g. via https://scanqr.org/) and paste the resulting text here. It must start with RW_Share_. The code is only valid for a few minutes and is used once to pair the device.",
       "newLine": true,
       "hidden": "data.generation !== 'v2' || data.v2Method === 'androidId'",
@@ -142,6 +144,7 @@
     "androidId": {
       "type": "text",
       "label": "Android ID",
+      "placeholder": "e.g. 903eaa3ed6dce6a5",
       "help": "Android users only: the 16-character ID shown in the Bestway Connect app under profile / account. This directly reuses your existing account and its paired devices, no QR code needed.",
       "newLine": true,
       "hidden": "data.generation !== 'v2' || data.v2Method !== 'androidId'",
