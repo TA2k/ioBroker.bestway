@@ -21,7 +21,8 @@
   "dependencies": {
     "@iobroker/adapter-core": "^3.4.3",
     "axios": "^1.18.1",
-    "json-bigint": "^1.0.0"
+    "json-bigint": "^1.0.0",
+    "ws": "^8.21.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

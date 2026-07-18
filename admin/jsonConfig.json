@@ -2,9 +2,46 @@
   "i18n": true,
   "type": "panel",
   "items": {
+    "generation": {
+      "type": "select",
+      "label": "Device generation",
+      "help": "V1: Bestway Smart Hub app (older models, login with email/password). V2: Bestway Connect / Smart Spa app (UltraFit models from 2025, pairing via QR code).",
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
+      "options": [
+        { "label": "V1 (Bestway Smart Hub)", "value": "v1" },
+        { "label": "V2 (Bestway Connect / Smart Spa)", "value": "v2" }
+      ]
+    },
+    "interval": {
+      "type": "number",
+      "label": "Update interval (in minutes)",
+      "min": 0.5,
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
+    },
+    "_v1header": {
+      "type": "staticText",
+      "text": "V1 login (Bestway Smart Hub)",
+      "newLine": true,
+      "hidden": "data.generation === 'v2'",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
     "username": {
       "type": "text",
       "label": "App Email",
+      "newLine": true,
+      "hidden": "data.generation === 'v2'",
       "xs": 12,
       "sm": 12,
       "md": 6,
@@ -14,36 +51,117 @@
     "password": {
       "type": "password",
       "label": "App Password",
+      "hidden": "data.generation === 'v2'",
       "xs": 12,
       "sm": 12,
       "md": 6,
       "lg": 6,
       "xl": 6
     },
-    "interval": {
-      "type": "number",
-      "label": "Update interval (in minutes)",
-      "min": 0.5,
-      "newLine": true,
-      "xs": 12,
-      "sm": 12,
-      "md": 4,
-      "lg": 3,
-      "xl": 3
-    },
     "api": {
       "type": "select",
       "label": "Country",
       "newLine": true,
+      "hidden": "data.generation === 'v2'",
       "xs": 12,
       "sm": 12,
-      "md": 4,
-      "lg": 3,
-      "xl": 3,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
       "options": [
         { "label": "Germany", "value": "euapi" },
         { "label": "Not Germany", "value": "usapi" }
       ]
+    },
+    "_v2header": {
+      "type": "staticText",
+      "text": "V2 pairing (Bestway Connect / Smart Spa)",
+      "newLine": true,
+      "hidden": "data.generation !== 'v2'",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "region": {
+      "type": "select",
+      "label": "Region",
+      "newLine": true,
+      "hidden": "data.generation !== 'v2'",
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
+      "options": [
+        { "label": "Europe", "value": "EU" },
+        { "label": "United States", "value": "US" },
+        { "label": "China", "value": "CN" }
+      ]
+    },
+    "v2Method": {
+      "type": "select",
+      "label": "V2 pairing method",
+      "help": "QR code: works for iOS and Android. Android ID: shortcut for Android users, no QR needed - enter the ID shown in the Bestway Connect app under profile.",
+      "newLine": true,
+      "hidden": "data.generation !== 'v2'",
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
+      "options": [
+        { "label": "QR code (iOS + Android)", "value": "qr" },
+        { "label": "Android ID (Android only)", "value": "androidId" }
+      ]
+    },
+    "qrCode": {
+      "type": "text",
+      "label": "Share QR code",
+      "help": "Open the Bestway Connect app: device settings > Device Sharing, show the QR code, decode it (e.g. via https://scanqr.org/) and paste the resulting text here. It must start with RW_Share_. The code is only valid for a few minutes and is used once to pair the device.",
+      "newLine": true,
+      "hidden": "data.generation !== 'v2' || data.v2Method === 'androidId'",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "_v2hint": {
+      "type": "staticLink",
+      "text": "QR decoder: scanqr.org",
+      "href": "https://scanqr.org/",
+      "hidden": "data.generation !== 'v2' || data.v2Method === 'androidId'",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "androidId": {
+      "type": "text",
+      "label": "Android ID",
+      "help": "Android users only: the 16-character ID shown in the Bestway Connect app under profile / account. This directly reuses your existing account and its paired devices, no QR code needed.",
+      "newLine": true,
+      "hidden": "data.generation !== 'v2' || data.v2Method !== 'androidId'",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "visitorId": {
+      "type": "text",
+      "label": "Visitor ID (advanced, optional)",
+      "help": "Leave empty. On first successful QR pairing a random visitor ID is generated and stored here automatically. Only fill this to reuse an existing account.",
+      "newLine": true,
+      "hidden": "data.generation !== 'v2' || data.v2Method === 'androidId'",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
     }
   }
 }

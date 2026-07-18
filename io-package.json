@@ -94,12 +94,18 @@
     ]
   },
   "encryptedNative": ["password"],
-  "protectedNative": ["password"],
+  "protectedNative": ["password", "visitorId", "qrCode", "androidId"],
   "native": {
+    "generation": "v1",
     "username": "",
     "password": "",
     "interval": 10,
-    "api": "euapi"
+    "api": "euapi",
+    "region": "EU",
+    "v2Method": "qr",
+    "qrCode": "",
+    "androidId": "",
+    "visitorId": ""
   },
   "objects": [],
   "instanceObjects": [
