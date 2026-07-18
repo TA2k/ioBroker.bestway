@@ -52,6 +52,13 @@ class Bestway extends utils.Adapter {
       return;
     }
 
+    // V1 requires email + password. Abort early instead of firing a login
+    // request that the API rejects with "field username error".
+    if (!this.config.username || !this.config.password) {
+      this.log.warn("V1 (Smart Hub) selected but email and/or password are not configured. Please open the adapter settings.");
+      return;
+    }
+
     await this.login();
 
     if (this.session.token) {
@@ -351,6 +358,11 @@ class Bestway extends utils.Adapter {
           this.log.error(JSON.stringify(error.response.data));
         }
       });
+    if (!this.session || !this.session.token) {
+      // Login did not return a token - skip the follow-up call that would
+      // otherwise fail with "token invalid".
+      return;
+    }
     await this.requestClient({
       method: "get",
       url: "https://" + this.api + ".gizwits.com/app/users",
