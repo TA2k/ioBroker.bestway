@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "bestway",
-    "version": "0.0.6",
+    "version": "0.1.0",
     "news": {
-      "0.0.6": {
+      "0.1.0": {
         "en": "Support for Bestway Connect / Smart Spa (V2, AWS IoT backend) with QR code or Android ID pairing and realtime WebSocket updates",
         "de": "Unterstützung für Bestway Connect / Smart Spa (V2, AWS-IoT-Backend) mit QR-Code- oder Android-ID-Kopplung und Echtzeit-WebSocket-Updates",
         "ru": "Поддержка Bestway Connect / Smart Spa (V2, бэкенд AWS IoT) с привязкой по QR-коду или Android ID и обновлениями через WebSocket в реальном времени",
