@@ -69,8 +69,16 @@
       "zh-cn": "适用于 Bestway Smart Hub (V1) 和 Bestway Connect / Smart Spa (V2) 的适配器",
       "uk": "Адаптер для Bestway Smart Hub (V1) та Bestway Connect / Smart Spa (V2)"
     },
-    "authors": ["TA2k <tombox2020@gmail.com>"],
-    "keywords": ["bestway", "smart hub", "bestway connect", "smart spa", "Lay-Z-Spa"],
+    "authors": [
+      "TA2k <tombox2020@gmail.com>"
+    ],
+    "keywords": [
+      "bestway",
+      "smart hub",
+      "bestway connect",
+      "smart spa",
+      "Lay-Z-Spa"
+    ],
     "licenseInformation": {
       "type": "free",
       "license": "MIT"
@@ -102,12 +110,19 @@
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.6.20"
+        "admin": ">=7.8.23"
       }
     ]
   },
-  "encryptedNative": ["password"],
-  "protectedNative": ["password", "visitorId", "qrCode", "androidId"],
+  "encryptedNative": [
+    "password"
+  ],
+  "protectedNative": [
+    "password",
+    "visitorId",
+    "qrCode",
+    "androidId"
+  ],
   "native": {
     "generation": "v1",
     "username": "",

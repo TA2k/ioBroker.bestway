@@ -49,6 +49,10 @@ https://forum.iobroker.net/topic/48023/test-adapter-bestway-v0-0-x
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
 ### 0.1.0
 
 Support for Bestway Connect / Smart Spa (V2, AWS IoT backend) with QR code or Android ID pairing and realtime WebSocket updates.
